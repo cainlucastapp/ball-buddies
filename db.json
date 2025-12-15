@@ -5,7 +5,7 @@
       "name": "Soccer Punk",
       "sport": "Soccer",
       "price": 24.99,
-      "image": "https://via.placeholder.com/300?text=Soccer+Punk",
+      "image": "/images/soccer-punk.jpeg",
       "description": "This soccer ball doesn't play by the rules. With a mohawk and attitude to match.",
       "inStock": true,
       "rarity": "rare"
@@ -15,7 +15,7 @@
       "name": "Basketball Baller",
       "sport": "Basketball",
       "price": 29.99,
-      "image": "https://via.placeholder.com/300?text=Basketball+Baller",
+      "image": "/images/basketball-baller.jpeg",
       "description": "Always ready for the spotlight. This ball has swagger in every bounce.",
       "inStock": true,
       "rarity": "common"
@@ -25,8 +25,8 @@
       "name": "Volleyball Vibes",
       "sport": "Volleyball",
       "price": 19.99,
-      "image": "https://via.placeholder.com/300?text=Volleyball+Vibes",
-      "description": "Bringing beach energy wherever it goes. Sunshine mandatory.",
+      "image": "/images/volleyball-vibes.jpeg",
+      "description": "This ball is super chill but kind of a jerk, you know the type.",
       "inStock": true,
       "rarity": "common"
     }
