@@ -1,0 +1,34 @@
+{
+  "buddies": [
+    {
+      "id": "1",
+      "name": "Soccer Punk",
+      "sport": "Soccer",
+      "price": 24.99,
+      "image": "https://via.placeholder.com/300?text=Soccer+Punk",
+      "description": "This soccer ball doesn't play by the rules. With a mohawk design and attitude to match.",
+      "inStock": true,
+      "rarity": "rare"
+    },
+    {
+      "id": "2",
+      "name": "Basketball Baller",
+      "sport": "Basketball",
+      "price": 29.99,
+      "image": "https://via.placeholder.com/300?text=Basketball+Baller",
+      "description": "Always ready for the spotlight. This ball has swagger in every bounce.",
+      "inStock": true,
+      "rarity": "common"
+    },
+    {
+      "id": "3",
+      "name": "Volleyball Vibes",
+      "sport": "Volleyball",
+      "price": 19.99,
+      "image": "https://via.placeholder.com/300?text=Volleyball+Vibes",
+      "description": "Bringing beach energy wherever it goes. Sunshine mandatory.",
+      "inStock": true,
+      "rarity": "common"
+    }
+  ]
+}
