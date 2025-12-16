@@ -1,0 +1,19 @@
+/* src/styles/components/Navbar.css */
+
+.nav-links a {
+    color: #333;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.nav-links a:hover {
+    background-color: #f0f0f0;
+}
+
+.nav-links a.active {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: 600;
+}

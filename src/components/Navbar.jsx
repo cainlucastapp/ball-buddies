@@ -1,5 +1,7 @@
 // src/components/Navbar.jsx
-import { Link } from "react-router-dom"
+
+// Dependancies
+import { NavLink } from "react-router-dom"
 import "../styles/components/Navbar.css"
 
 const Navbar = () => {
@@ -9,9 +11,9 @@ const Navbar = () => {
                 <h1>Ball Buddies</h1>
             </div>
             <ul className="nav-links">
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/shop">Shop</Link></li>
-                <li><Link to="/admin">Admin Portal</Link></li>
+                <li><NavLink to="/" className={({ isActive }) => isActive ? "active" : ""}>Home</NavLink></li>
+                <li><NavLink to="/shop" className={({ isActive }) => isActive ? "active" : ""}>Shop</NavLink></li>
+                <li><NavLink to="/admin" className={({ isActive }) => isActive ? "active" : ""}>Admin Portal</NavLink></li>
             </ul>
         </nav>
     )
