@@ -17,7 +17,7 @@
       "price": 29.99,
       "image": "/images/basketball-baller.jpeg",
       "description": "Always ready for the spotlight. This ball has swagger in every bounce.",
-      "inStock": false,
+      "inStock": true,
       "rarity": "common"
     },
     {
@@ -27,8 +27,15 @@
       "price": 19.99,
       "image": "/images/volleyball-vibes.jpeg",
       "description": "This ball is super chill but kind of a jerk, you know the type.",
-      "inStock": false,
+      "inStock": true,
       "rarity": "common"
+    }
+  ],
+  "admins": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "admin123"
     }
   ]
 }
