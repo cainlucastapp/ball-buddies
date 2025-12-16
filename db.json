@@ -8,17 +8,21 @@
       "image": "/images/soccer-punk.jpeg",
       "description": "This soccer ball doesn't play by the rules. With a mohawk and attitude to match.",
       "inStock": true,
-      "rarity": "rare"
+      "rarity": "rare",
+      "dateCreated": "2024-12-01T10:30:00Z",
+      "dateUpdated": "2025-12-16T19:15:01.554Z"
     },
     {
       "id": "2",
-      "name": "Basketball Baller",
+      "name": "Basketballer",
       "sport": "Basketball",
       "price": 29.99,
-      "image": "/images/basketball-baller.jpeg",
+      "image": "/images/basketballer.jpeg",
       "description": "Always ready for the spotlight. This ball has swagger in every bounce.",
       "inStock": true,
-      "rarity": "common"
+      "rarity": "common",
+      "dateCreated": "2024-11-15T08:15:00Z",
+      "dateUpdated": "2024-12-10T16:45:00Z"
     },
     {
       "id": "3",
@@ -28,7 +32,9 @@
       "image": "/images/volleyball-vibes.jpeg",
       "description": "This ball is super chill but kind of a jerk, you know the type.",
       "inStock": true,
-      "rarity": "common"
+      "rarity": "common",
+      "dateCreated": "2024-10-20T12:00:00Z",
+      "dateUpdated": "2024-12-05T09:30:00Z"
     }
   ],
   "admins": [
