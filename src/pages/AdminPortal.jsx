@@ -1,5 +1,5 @@
 // src/pages/AdminPortal.jsx
-import "../styles/pages/AdminPortal.css"
+import "./AdminPortal.css"
 
 const AdminPortal = () => {
     return (
