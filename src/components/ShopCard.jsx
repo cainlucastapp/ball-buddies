@@ -1,4 +1,4 @@
-// src/components/ProductCard.jsx
+// src/components/ShopCard.jsx
 import "../styles/components/ProductCard.css"
 
 const ProductCard = ({ buddy }) => {

@@ -1,6 +1,6 @@
 // src/pages/Shop.jsx
 import useFetch from "../hooks/useFetch"
-import ProductCard from "../components/ProductCard"
+import ShopCard from "../components/ShopCard"
 import "../styles/pages/Shop.css"
 
 const Shop = () => {
@@ -25,7 +25,7 @@ const Shop = () => {
             {/* Product grid */}
             <div className="products-grid">
                 {buddies && buddies.map((buddy) => (
-                    <ProductCard 
+                    <ShopCard 
                         key={buddy.id} 
                         buddy={buddy} 
                     />
