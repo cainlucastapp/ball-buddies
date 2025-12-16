@@ -5,7 +5,7 @@ import { useState, useEffect } from "react"
 
 const ProductForm = ({ editingBuddy, onSuccess, onCancel }) => {
     
-    // Form state
+    // Set form, error and submit state
     const [values, setValues] = useState({
         name: '',
         sport: '',
@@ -18,7 +18,7 @@ const ProductForm = ({ editingBuddy, onSuccess, onCancel }) => {
     const [errors, setErrors] = useState({})
     const [isSubmitting, setIsSubmitting] = useState(false)
 
-    // Populate form if editing
+    // Edit buddy side effect
     useEffect(() => {
         if (editingBuddy) {
             setValues({
@@ -42,7 +42,7 @@ const ProductForm = ({ editingBuddy, onSuccess, onCancel }) => {
             [name]: type === 'checkbox' ? checked : value
         }))
         
-        // Clear error for this field
+        // Clear error
         if (errors[name]) {
             setErrors(prev => ({
                 ...prev,
@@ -98,6 +98,20 @@ const ProductForm = ({ editingBuddy, onSuccess, onCancel }) => {
             : "http://localhost:4000/buddies"
         
         const method = editingBuddy ? "PATCH" : "POST"
+        
+        // Buddy dats
+        const now = new Date().toISOString()
+        const buddyData = {
+            ...values,
+            price: parseFloat(values.price),
+            // Update buddy timestap
+            dateUpdated: now 
+        }
+        
+        // New buddy timestamp
+        if (!editingBuddy) {
+            buddyData.dateCreated = now
+        }
 
         try {
             const response = await fetch(url, {
@@ -105,16 +119,13 @@ const ProductForm = ({ editingBuddy, onSuccess, onCancel }) => {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({
-                    ...values,
-                    price: parseFloat(values.price)
-                })
+                body: JSON.stringify(buddyData)
             })
 
             if (!response.ok) {
                 throw new Error(`Failed to ${editingBuddy ? 'update' : 'add'} buddy`)
             }
-
+            // Buddy added
             alert(`Buddy ${editingBuddy ? 'updated' : 'added'} successfully!`)
             onSuccess()
         } catch (error) {
@@ -239,9 +250,7 @@ const ProductForm = ({ editingBuddy, onSuccess, onCancel }) => {
                     <button type="submit" disabled={isSubmitting} className="submit-btn">
                         {isSubmitting ? 'Saving...' : editingBuddy ? 'Update Buddy' : 'Add Buddy'}
                     </button>
-                    <button type="button" onClick={onCancel} className="cancel-btn">
-                        Cancel
-                    </button>
+                    <button type="button" onClick={onCancel} className="cancel-btn"> Cancel </button>
                 </div>
             </form>
         </div>

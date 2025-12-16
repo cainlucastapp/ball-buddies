@@ -3,6 +3,8 @@
 // Dependancies 
 import { useState, useEffect } from "react"
 import useFetch from "../hooks/useFetch"
+import useSearch from "../hooks/useSearch"
+import SearchBar from "../components/SearchBar"
 
 const ProductList = ({ onAddNew, onEdit, refreshTrigger }) => {
     
@@ -11,6 +13,9 @@ const ProductList = ({ onAddNew, onEdit, refreshTrigger }) => {
         `http://localhost:4000/buddies?_refresh=${refreshTrigger}`
     )
     const [buddies, setBuddies] = useState([])
+
+    // useSearch
+    const { searchTerm, setSearchTerm, sortBy, setSortBy, stockFilter, setStockFilter, filteredItems, resultCount, totalCount} = useSearch(buddies, ['name', 'sport', 'description'])
 
     // Update local state when data is fetched
     useEffect(() => {
@@ -69,6 +74,7 @@ const ProductList = ({ onAddNew, onEdit, refreshTrigger }) => {
                 )
             )
         } catch (error) {
+            // Error updating
             console.error("Error updating stock:", error)
             alert("Failed to update stock status.")
         }
@@ -80,14 +86,25 @@ const ProductList = ({ onAddNew, onEdit, refreshTrigger }) => {
 
     return (
         <div className="list-container">
+
             <div className="list-header">
-                <h2>Current Inventory ({buddies?.length || 0} buddies)</h2>
+                <h2>Current Inventory</h2>
+                
+                {/* Search */}
+                <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} sortBy={sortBy} setSortBy={setSortBy} stockFilter={stockFilter} setStockFilter={setStockFilter}/>
+                
+                {/* New Buddy Button */}
                 <button onClick={onAddNew} className="add-new-btn">
                     + Add New Buddy
                 </button>
             </div>
 
-            {buddies && buddies.length > 0 ? (
+            <div className="results-info">
+                <p>Showing {resultCount} of {totalCount} buddies</p>
+            </div>
+
+            {/* List Header */}
+            {filteredItems.length > 0 ? (
                 <table>
                     <thead>
                         <tr>
@@ -101,7 +118,7 @@ const ProductList = ({ onAddNew, onEdit, refreshTrigger }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {buddies.map(buddy => (
+                        {filteredItems.map(buddy => (
                             <tr key={buddy.id}>
                                 <td>
                                     <img 
@@ -146,10 +163,17 @@ const ProductList = ({ onAddNew, onEdit, refreshTrigger }) => {
                 </table>
             ) : (
                 <div className="empty-state">
-                    <p>No buddies in inventory yet.</p>
-                    <button onClick={onAddNew} className="add-new-btn">
-                        + Add Your First Buddy
-                    </button>
+                    {buddies.length === 0 ? (
+                        <>
+                            <p>No buddies in inventory yet.</p>
+                            {/* Button */}
+                            <button onClick={onAddNew} className="add-new-btn">
+                                + Add Your First Buddy
+                            </button>
+                        </>
+                    ) : (
+                        <p>No buddies found matching your filters</p>
+                    )}
                 </div>
             )}
         </div>
