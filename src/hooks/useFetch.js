@@ -1,6 +1,6 @@
 // src/hooks/useFetch.js
 
-// Dependancies 
+// Dependancies
 import { useState, useEffect } from "react"
 
 // Custom hook for fetching data from an API
