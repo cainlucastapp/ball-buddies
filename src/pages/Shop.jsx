@@ -1,35 +1,43 @@
 // src/pages/Shop.jsx
+
+// Dependancies
 import useFetch from "../hooks/useFetch"
+import useSearch from "../hooks/useSearch"
 import ShopCard from "../components/ShopCard"
+import SearchBar from "../components/SearchBar"
 import "../styles/pages/Shop.css"
 
 const Shop = () => {
-    
-    // Fetch buddies from database
+
+    // useFetch to get buddies from database
     const { data: buddies, loading, error } = useFetch("http://localhost:4000/buddies")
+    
+    // useSearch
+    const { searchTerm, setSearchTerm, sortBy, setSortBy, stockFilter, setStockFilter, filteredItems, resultCount, totalCount} = useSearch(buddies, ['name', 'sport', 'description'])
 
-    // Loading api data
+    // Loading / error states
     if (loading) return <div className="shop-container"><p>Loading buddies...</p></div>
-
-    // Error on fetch failure
     if (error) return <div className="shop-container"><p>Error: {error}</p></div>
 
-    
     return (
         <div className="shop-container">
             <h1>Shop All Buddies</h1>
-            <p>Browse our collection of character balls</p>
             
-            {/* SearchBar component will go here */}
+            {/* Search */}
+            <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} sortBy={sortBy} setSortBy={setSortBy} stockFilter={stockFilter} setStockFilter={setStockFilter}/>
             
-            {/* Product grid */}
-            <div className="products-grid">
-                {buddies && buddies.map((buddy) => (
-                    <ShopCard 
-                        key={buddy.id} 
-                        buddy={buddy} 
-                    />
-                ))}
+            <div className="results-info">
+                <p>Showing {resultCount} of {totalCount} buddies</p>
+            </div>
+
+            <div className="buddies-grid">
+                {filteredItems.length > 0 ? (
+                    filteredItems.map(buddy => (
+                        <ShopCard key={buddy.id} buddy={buddy} />
+                    ))
+                ) : (
+                    <p>No buddies found matching your filters</p>
+                )}
             </div>
         </div>
     )
