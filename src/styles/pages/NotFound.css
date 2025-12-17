@@ -1,0 +1,41 @@
+/* src/styles/pages/NotFound.css */
+
+.notfound-container {
+    text-align: center;
+    padding: 2rem 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.missing-buddy-image {
+    max-width: 250px;
+    width: 100%;
+    height: auto;
+}
+
+.notfound-container h1 {
+    font-size: 6rem;
+    color: var(--color-orange-primary);
+}
+
+.notfound-container h2 {
+    font-size: 2rem;
+    color: var(--color-text-dark);
+}
+
+.notfound-container p {
+    font-size: 1rem;
+    color: var(--color-text-light);
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .notfound-container h1 {
+        font-size: 4rem;
+    }
+    
+    .notfound-container h2 {
+        font-size: 1.5rem;
+    }
+}
