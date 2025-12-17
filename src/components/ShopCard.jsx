@@ -1,5 +1,5 @@
 // src/components/ShopCard.jsx
-import "../styles/components/ProductCard.css"
+import "../styles/components/ShopCard.css"
 
 const ProductCard = ({ buddy }) => {
     return (

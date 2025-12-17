@@ -14,12 +14,14 @@ const App = () => {
         <>
             <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
                 <Header />
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/shop" element={<Shop />} />
-                    <Route path="/admin" element={<AdminPortal />} />
-                    <Route path="*" element={<NotFound />} />
-                </Routes>
+                <div class="app-container">
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/shop" element={<Shop />} />
+                        <Route path="/admin" element={<AdminPortal />} />
+                        <Route path="*" element={<NotFound />} />
+                    </Routes>
+                </div>
             </BrowserRouter>
         </>
     )
