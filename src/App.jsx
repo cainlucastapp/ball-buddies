@@ -14,7 +14,7 @@ const App = () => {
         <>
             <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
                 <Header />
-                <div class="app-container">
+                <div className="app-container">
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/shop" element={<Shop />} />
