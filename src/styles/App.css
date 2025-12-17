@@ -46,6 +46,12 @@ main {
     width: 100%;     /* Ensures it takes full width up to max-width */
 }
 
+.app-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px
+}
+
 h1, h2, h3, h4, h5, h6 {
     color: var(--color-text-dark);
     font-weight: 700;
@@ -61,6 +67,8 @@ button {
     cursor: pointer;
     font-family: inherit;
 }
+
+
 
 /* Responsive */
 @media (max-width: 768px) {
