@@ -1,42 +1,70 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* src/styles/App.css */
+
+:root {
+    /* Primary Colors */
+    --color-blue-primary: #00B4D8;
+    --color-blue-dark: #0096C7;
+    --color-orange-primary: #FF9500;
+    --color-orange-dark: #FF6B35;
+    --color-yellow: #FFB627;
+    
+    /* Neutrals */
+    --color-text-dark: #2B3A4A;
+    --color-text-light: #666666;
+    --color-bg-light: #F5F5F5;
+    --color-bg-white: #FFFFFF;
+    --color-border: #E0E0E0;
+    
+    /* Accents */
+    --color-green: #4CAF50;
+    --color-green-hover: #45A049;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+body {
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    background-color: var(--color-bg-light);
+    color: var(--color-text-dark);
+    line-height: 1.6;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+main {
+    min-height: calc(100vh - 120px);
+    padding: 2rem;
+    max-width: 1600px;
+    margin: 0 auto;  /* This centers the main element */
+    width: 100%;     /* Ensures it takes full width up to max-width */
 }
 
-.card {
-  padding: 2em;
+h1, h2, h3, h4, h5, h6 {
+    color: var(--color-text-dark);
+    font-weight: 700;
 }
 
-.read-the-docs {
-  color: #888;
+a {
+    color: var(--color-blue-primary);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+button {
+    cursor: pointer;
+    font-family: inherit;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    main {
+        padding: 1rem;
+    }
 }

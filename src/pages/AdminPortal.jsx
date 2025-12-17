@@ -16,6 +16,24 @@ const AdminPortal = () => {
     const [editingBuddy, setEditingBuddy] = useState(null)
     const [refreshTrigger, setRefreshTrigger] = useState(0)
 
+    // Handle browser back/forward buttons
+    useEffect(() => {
+        const handlePopState = () => {
+            // Check history state to determine which view to show
+            if (window.history.state?.formOpen) {
+                // Forward button pressed - show form
+                setView('form')
+                setEditingBuddy(window.history.state.buddy || null)
+            } else {
+                // Back button pressed - show table
+                setView('table')
+                setEditingBuddy(null)
+            }
+        }
+        window.addEventListener('popstate', handlePopState)
+        return () => window.removeEventListener('popstate', handlePopState)
+    }, [])
+
     // Show correct view based on auth status
     useEffect(() => {
         if (isAuthenticated && view !== 'form') {
@@ -39,22 +57,17 @@ const AdminPortal = () => {
         setRefreshTrigger(prev => prev + 1)
     }
 
-    // Switch to form view for adding new buddy
-    const handleAddNew = () => {
-        setEditingBuddy(null)
-        setView('form')
-    }
-
-    // Switch to form view for editing existing buddy
-    const handleEdit = (buddy) => {
+    // Switch to form to add new or edit existing buddy
+    const handleShowForm = (buddy = null) => {
+        // Add to browser history with form state and buddy data
+        window.history.pushState({ formOpen: true, buddy: buddy }, '', '')
         setEditingBuddy(buddy)
         setView('form')
     }
 
     // Switch back to table view
     const handleBackToTable = () => {
-        setView('table')
-        setEditingBuddy(null)
+        window.history.back()
     }
 
     // After successful form submission
@@ -92,7 +105,7 @@ const AdminPortal = () => {
             </div>
 
             {view === 'table' ? (
-                <ProductList onAddNew={handleAddNew} onEdit={handleEdit} refreshTrigger={refreshTrigger}/>
+                <ProductList onAddNew={() => handleShowForm()} onEdit={handleShowForm} refreshTrigger={refreshTrigger}/>
             ) : (
                 <ProductForm editingBuddy={editingBuddy} onSuccess={handleFormSuccess} onCancel={handleBackToTable}/>
             )}
