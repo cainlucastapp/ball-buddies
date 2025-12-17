@@ -1,19 +1,57 @@
 /* src/styles/components/Navbar.css */
 
+.navbar {
+    margin: 0;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    display: inline;
+}
+
 .nav-links a {
-    color: #333;
     text-decoration: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    transition: background-color 0.3s;
+    color: var(--color-bg-white);
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 2px solid transparent;
+    transition: all 0.3s;
+    display: inline-block;
 }
 
 .nav-links a:hover {
-    background-color: #f0f0f0;
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    border-color: var(--color-yellow);
 }
 
 .nav-links a.active {
-    background-color: #4CAF50;
-    color: white;
-    font-weight: 600;
+    background: linear-gradient(135deg, var(--color-orange-primary), var(--color-orange-dark));
+    color: var(--color-bg-white);
+    box-shadow: 0 4px 12px rgba(255, 149, 0, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+    }
+    
+    .nav-links a {
+        text-align: center;
+        width: 100%;
+    }
 }
