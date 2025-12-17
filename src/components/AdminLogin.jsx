@@ -1,7 +1,9 @@
 // src/components/AdminLogin.jsx
 
 // Dependancies
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
+import "../styles/components/AdminLogin.css"
+
 
 const AdminLogin = ({ onLogin, login, isLoading }) => {
     
@@ -9,6 +11,14 @@ const AdminLogin = ({ onLogin, login, isLoading }) => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [error, setError] = useState("")
+    
+    // Username input ref
+    const usernameRef = useRef(null)
+
+    // Focus username on mount
+    useEffect(() => {
+        usernameRef.current?.focus()
+    }, [])
 
     // Handle form submit
     const handleSubmit = async (e) => {
@@ -34,8 +44,7 @@ const AdminLogin = ({ onLogin, login, isLoading }) => {
     return (
         <div className="login-container">
             <form className="login-form" onSubmit={handleSubmit}>
-                <h2>Admin Login</h2>
-                <p className="login-subtitle">Enter your credentials to access the admin panel</p>
+                <h1>Admin Login</h1>
 
                 {error && <div className="error-banner">{error}</div>}
 
@@ -43,11 +52,12 @@ const AdminLogin = ({ onLogin, login, isLoading }) => {
                 <div className="form-group">
                     <label htmlFor="username">Username</label>
                     <input
+                        ref={usernameRef}
                         type="text"
                         id="username"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
-                        placeholder="admin"
+                        placeholder="username"
                         required
                         disabled={isLoading}
                     />
@@ -71,10 +81,6 @@ const AdminLogin = ({ onLogin, login, isLoading }) => {
                 <button type="submit" className="login-btn" disabled={isLoading}>
                     {isLoading ? 'Logging in...' : 'Login'}
                 </button>
-
-                <div className="login-hint">
-                    <small>Demo credentials: admin / admin123</small>
-                </div>
             </form>
         </div>
     )
