@@ -6,11 +6,11 @@
       "sport": "Soccer",
       "price": 24.99,
       "image": "/images/soccer-punk.png",
-      "description": "This soccer ball doesn't play by the rules. Red card? More like red mohawk.",
+      "description": "This soccer ball doesn't play by the rules. Red card? More like rock out.",
       "inStock": true,
       "rarity": "rare",
       "dateCreated": "2024-12-01T10:30:00Z",
-      "dateUpdated": "2024-12-15T14:22:00Z"
+      "dateUpdated": "2025-12-17T01:21:53.313Z"
     },
     {
       "id": "2",
