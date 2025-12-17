@@ -21,13 +21,13 @@ const Shop = () => {
 
     return (
         <div className="shop-container">
-            <h1>Shop All Buddies</h1>
+            <h1>Pick Your Buddy!</h1>
             
             {/* Search */}
             <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} sortBy={sortBy} setSortBy={setSortBy} stockFilter={stockFilter} setStockFilter={setStockFilter}/>
             
             <div className="results-info">
-                <p>Showing {resultCount} of {totalCount} buddies</p>
+                <p>Showing {resultCount} of {totalCount} Buddies</p>
             </div>
 
             <div className="buddies-grid">
