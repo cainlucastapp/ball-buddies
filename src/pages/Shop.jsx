@@ -1,6 +1,6 @@
 // src/pages/Shop.jsx
 
-// Dependancies
+// Dependencies
 import useFetch from "../hooks/useFetch"
 import useSearch from "../hooks/useSearch"
 import ShopCard from "../components/ShopCard"
@@ -24,7 +24,7 @@ const Shop = () => {
 
             <div className="shop-info">
                 <h1>Bring The Buddies To Your Town!</h1>
-                <p>If your store is interested in carrying Ball Buddies contacts our sales team at (702) 479-7522.</p>
+                <p>If your store is interested in carrying Ball Buddies contact our sales team at (702) 479-7522.</p>
             </div>
             
             {/* Search */}
