@@ -1,0 +1,14 @@
+/* src/styles/components/Footer.css */
+
+.site-footer {
+    background-color: var(--color-text-dark);
+    color: var(--color-bg-white);
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.site-footer p {
+    font-size: 0.85rem;
+    margin: 0;
+}
