@@ -8,9 +8,9 @@
       "image": "/images/soccer-punk.png",
       "description": "This soccer ball doesn't play by the rules. Red card? More like rock out.",
       "inStock": true,
-      "rarity": "ultra",
+      "rarity": "rare",
       "dateCreated": "2024-12-01T10:30:00Z",
-      "dateUpdated": "2025-12-18T01:38:47.721Z"
+      "dateUpdated": "2025-12-17T01:21:53.313Z"
     },
     {
       "id": "2",
@@ -44,9 +44,9 @@
       "image": "/images/8-Ball.png",
       "description": "Magic 8-Ball says: You're about to lose. All signs point to yes!",
       "inStock": true,
-      "rarity": "ultra",
+      "rarity": "legendary",
       "dateCreated": "2024-12-16T11:00:00Z",
-      "dateUpdated": "2025-12-18T01:39:47.071Z"
+      "dateUpdated": "2024-12-16T11:00:00Z"
     },
     {
       "id": "5",
@@ -55,7 +55,7 @@
       "price": 25.99,
       "image": "/images/ball-baddie.png",
       "description": "Dark, edgy, and ready to dodge. This ball listens to My Chemical Romance.",
-      "inStock": true,
+      "inStock": false,
       "rarity": "rare",
       "dateCreated": "2024-12-16T11:03:00Z",
       "dateUpdated": "2024-12-16T11:03:00Z"
@@ -87,14 +87,14 @@
     {
       "id": "8",
       "name": "Fireball",
-      "sport": "Baseball",
+      "sport": "Soccer",
       "price": 39.99,
       "image": "/images/Fireball.png",
       "description": "I didn't ask how BIG the room is. I CAST FIREBALL!",
       "inStock": true,
-      "rarity": "ultra",
+      "rarity": "legendary",
       "dateCreated": "2024-12-16T11:15:00Z",
-      "dateUpdated": "2025-12-18T01:39:05.465Z"
+      "dateUpdated": "2024-12-16T11:15:00Z"
     },
     {
       "id": "9",
@@ -139,10 +139,10 @@
       "price": 28.99,
       "image": "/images/puck-norris.png",
       "description": "Puck Norris doesn't skate around problems. Problems skate around Puck Norris.",
-      "inStock": true,
-      "rarity": "ultra",
+      "inStock": false,
+      "rarity": "legendary",
       "dateCreated": "2024-12-16T11:35:00Z",
-      "dateUpdated": "2025-12-18T01:39:55.594Z"
+      "dateUpdated": "2024-12-16T11:35:00Z"
     },
     {
       "id": "13",

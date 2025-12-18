@@ -6,6 +6,15 @@
     color: var(--color-text-dark);
 }
 
+.shop-info {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--color-bg-white);
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    margin-bottom: 2rem;
+}
+
 /* Results Info */
 .results-info {
     text-align: center;

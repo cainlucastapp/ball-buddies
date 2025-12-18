@@ -21,7 +21,11 @@ const Shop = () => {
 
     return (
         <div className="shop-container">
-            <h1>Pick Your Buddy!</h1>
+
+            <div className="shop-info">
+                <h1>Bring The Buddies To Your Town!</h1>
+                <p>If your store is interested in carrying Ball Buddies contacts our sales team at (702) 479-7522.</p>
+            </div>
             
             {/* Search */}
             <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} sortBy={sortBy} setSortBy={setSortBy} stockFilter={stockFilter} setStockFilter={setStockFilter}/>

@@ -25,7 +25,7 @@ const ShopCard = ({ buddy }) => {
             {/* Footer */}
             <div className="card-footer">
                 {/* Price */}
-                <span className="price">${buddy.price}</span>
+                <span className="price">MSRP ${buddy.price}</span>
                 {/* Stock Status */}
                 <span className={`stock ${buddy.inStock ? 'in-stock' : 'out-of-stock'}`}>
                     {buddy.inStock ? '✓ In Stock' : '✗ Out of Stock'}
