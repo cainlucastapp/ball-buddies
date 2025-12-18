@@ -5,6 +5,8 @@ import { useState, useEffect } from "react"
 import useFetch from "../hooks/useFetch"
 import useSearch from "../hooks/useSearch"
 import SearchBar from "../components/SearchBar"
+import "../styles/components/ProductList.css"
+
 
 const ProductList = ({ onAddNew, onEdit, refreshTrigger }) => {
     
@@ -87,23 +89,21 @@ const ProductList = ({ onAddNew, onEdit, refreshTrigger }) => {
     return (
         <div className="list-container">
 
-            <div className="list-header">
-                <h2>Current Inventory</h2>
-                
-                {/* Search */}
-                <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} sortBy={sortBy} setSortBy={setSortBy} stockFilter={stockFilter} setStockFilter={setStockFilter}/>
-                
-                {/* New Buddy Button */}
-                <button onClick={onAddNew} className="add-new-btn">
-                    + Add New Buddy
-                </button>
-            </div>
-
+            {/* Search */}
+            <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} sortBy={sortBy} setSortBy={setSortBy} stockFilter={stockFilter} setStockFilter={setStockFilter}/>
             <div className="results-info">
                 <p>Showing {resultCount} of {totalCount} buddies</p>
             </div>
 
-            {/* List Header */}
+            <div className="list-header">
+                {/* New Buddy Button */}
+                <button onClick={onAddNew} className="new-btn">
+                    + Add New Buddy
+                </button>
+                <h2>Current Inventory</h2>
+            </div>
+
+            {/* Table Header */}
             {filteredItems.length > 0 ? (
                 <table>
                     <thead>
@@ -121,21 +121,18 @@ const ProductList = ({ onAddNew, onEdit, refreshTrigger }) => {
                         {filteredItems.map(buddy => (
                             <tr key={buddy.id}>
                                 <td>
-                                    <img 
-                                        src={buddy.image} 
-                                        alt={buddy.name}
-                                        className="table-image"
-                                    />
+                                    <img src={buddy.image} alt={buddy.name} className="table-image"/>
                                 </td>
                                 <td>{buddy.name}</td>
                                 <td>{buddy.sport}</td>
                                 <td>${buddy.price}</td>
                                 <td>
-                                    <span className={`rarity-badge rarity-${buddy.rarity}`}>
+                                    <span className={"buddy-rarity"}>
                                         {buddy.rarity}
                                     </span>
                                 </td>
                                 <td>
+                                    {/* toggle stock */}
                                     <button
                                         onClick={() => handleToggleStock(buddy)}
                                         className={`stock-toggle ${buddy.inStock ? 'in-stock' : 'out-of-stock'}`}
@@ -144,12 +141,14 @@ const ProductList = ({ onAddNew, onEdit, refreshTrigger }) => {
                                     </button>
                                 </td>
                                 <td className="action-buttons">
+                                    {/* Button */}
                                     <button 
                                         onClick={() => onEdit(buddy)}
                                         className="edit-btn"
                                     >
                                         Edit
                                     </button>
+                                    {/* Button */}
                                     <button 
                                         onClick={() => handleDelete(buddy.id)}
                                         className="delete-btn"

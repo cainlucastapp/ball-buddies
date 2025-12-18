@@ -2,6 +2,7 @@
 
 // Dependancies
 import { useState, useEffect } from "react"
+import "../styles/components/ProductForm.css"
 
 const ProductForm = ({ editingBuddy, onSuccess, onCancel }) => {
     
@@ -226,7 +227,7 @@ const ProductForm = ({ editingBuddy, onSuccess, onCancel }) => {
                     >
                         <option value="common">Common</option>
                         <option value="rare">Rare</option>
-                        <option value="legendary">Legendary</option>
+                        <option value="ultra">Ultra</option>
                     </select>
                     {errors.rarity && <span className="error-message">{errors.rarity}</span>}
                 </div>

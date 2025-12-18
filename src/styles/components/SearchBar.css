@@ -5,9 +5,9 @@
     align-items: center;
     gap: 1rem;
     padding: 1rem;
-    background-color: #f8f9fa;
+    background-color: var(--color-bg-white);
     border-radius: 8px;
-    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-sm);
 }
 
 .search-input-container {
@@ -17,20 +17,20 @@
 
 .search-input {
     width: 100%;
-    padding: 0.6rem 1rem;
-    font-size: 0.95rem;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    transition: border-color 0.2s;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
 }
 
 .search-input:focus {
     outline: none;
-    border-color: #4CAF50;
+    border-color: var(--color-blue-primary);
 }
 
 .search-input::placeholder {
-    color: #999;
+    color: var(--color-text-light);
 }
 
 .filters-container {
@@ -43,46 +43,58 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    white-space: nowrap;
 }
 
 .filter-group label {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: #555;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
 }
 
 .sort-select,
 .stock-select {
-    padding: 0.6rem 0.8rem;
-    font-size: 0.9rem;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    background-color: white;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background-color: var(--color-bg-white);
     cursor: pointer;
-    transition: border-color 0.2s;
+    transition: border-color 0.3s ease;
 }
 
 .sort-select:focus,
 .stock-select:focus {
     outline: none;
-    border-color: #4CAF50;
+    border-color: var(--color-blue-primary);
 }
 
-/* Responsive - stack on small screens */
+/* Responsive */
 @media (max-width: 768px) {
     .search-bar {
         flex-direction: column;
         align-items: stretch;
+        gap: 0.75rem;
+        padding: 0.75rem;
     }
 
     .filters-container {
-        flex-direction: column;
-        align-items: stretch;
+        flex-direction: row;
         gap: 0.75rem;
     }
 
     .filter-group {
-        justify-content: space-between;
+        flex: 1;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.25rem;
     }
-}
+    
+    .filter-group label {
+        font-size: 0.85rem;
+    }
+    
+    .sort-select,
+    .stock-select {
+        width: 100%;
+        padding: 0.5rem;
+        font-size: 0.85re

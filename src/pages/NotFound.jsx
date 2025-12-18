@@ -11,7 +11,6 @@ const NotFound = () => {
             <h1>404</h1>
             <h2>Page Not Found</h2>
             <p>Oops! Looks like this buddy got lost.</p>
-            <Link to="/" className="home-link">Go back home</Link>
         </div>
     )
 }

@@ -11,7 +11,7 @@
 
 .logo-link {
     display: inline-block;
-    transition: transform 0.3s;
+    transition: transform 0.3s ease;
 }
 
 .logo-link:hover {
@@ -31,8 +31,7 @@
 }
 
 .header-tagline {
-    margin: 0;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-weight: 600;
     color: var(--color-bg-white);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);

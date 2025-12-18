@@ -1,9 +1,5 @@
 /* src/styles/components/Navbar.css */
 
-.navbar {
-    margin: 0;
-}
-
 .nav-links {
     display: flex;
     list-style: none;
@@ -12,12 +8,7 @@
     padding: 0;
 }
 
-.nav-links li {
-    display: inline;
-}
-
 .nav-links a {
-    text-decoration: none;
     color: var(--color-bg-white);
     font-weight: 600;
     font-size: 1rem;
@@ -26,7 +17,7 @@
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     border: 2px solid transparent;
-    transition: all 0.3s;
+    transition: background-color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
     display: inline-block;
 }
 
@@ -38,20 +29,17 @@
 
 .nav-links a.active {
     background: linear-gradient(135deg, var(--color-orange-primary), var(--color-orange-dark));
-    color: var(--color-bg-white);
     box-shadow: 0 4px 12px rgba(255, 149, 0, 0.4);
 }
 
 /* Responsive */
 @media (max-width: 768px) {
     .nav-links {
-        flex-direction: column;
         gap: 0.5rem;
-        width: 100%;
     }
     
     .nav-links a {
-        text-align: center;
-        width: 100%;
+        padding: 0.75rem 1rem;
+        font-size: 0.85rem;
     }
 }

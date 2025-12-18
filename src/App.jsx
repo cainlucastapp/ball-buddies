@@ -8,13 +8,14 @@ import Shop from "./pages/Shop"
 import AdminPortal from "./pages/AdminPortal"
 import NotFound from "./pages/NotFound"
 import "./styles/App.css"
+import Footer from "./components/Footer"
 
 const App = () => {
     return (
         <>
             <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
                 <Header />
-                <div class="app-container">
+                <div className="app-container">
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/shop" element={<Shop />} />
@@ -22,6 +23,7 @@ const App = () => {
                         <Route path="*" element={<NotFound />} />
                     </Routes>
                 </div>
+                <Footer />
             </BrowserRouter>
         </>
     )

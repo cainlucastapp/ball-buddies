@@ -55,7 +55,7 @@
       "price": 25.99,
       "image": "/images/ball-baddie.png",
       "description": "Dark, edgy, and ready to dodge. This ball listens to My Chemical Romance.",
-      "inStock": true,
+      "inStock": false,
       "rarity": "rare",
       "dateCreated": "2024-12-16T11:03:00Z",
       "dateUpdated": "2024-12-16T11:03:00Z"
@@ -139,7 +139,7 @@
       "price": 28.99,
       "image": "/images/puck-norris.png",
       "description": "Puck Norris doesn't skate around problems. Problems skate around Puck Norris.",
-      "inStock": true,
+      "inStock": false,
       "rarity": "legendary",
       "dateCreated": "2024-12-16T11:35:00Z",
       "dateUpdated": "2024-12-16T11:35:00Z"

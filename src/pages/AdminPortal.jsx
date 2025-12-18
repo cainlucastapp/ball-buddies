@@ -80,13 +80,7 @@ const AdminPortal = () => {
     if (!isAuthenticated) {
         return (
             <div className="admin-container">
-                <h1>Admin Portal</h1>
-                <p className="subtitle">Manage your Ball Buddies inventory</p>
-                <AdminLogin 
-                    onLogin={handleLoginSuccess} 
-                    login={login} 
-                    isLoading={isLoading} 
-                />
+                <AdminLogin onLogin={handleLoginSuccess} login={login} isLoading={isLoading}/>
             </div>
         )
     }
