@@ -24,6 +24,17 @@ const Shop = () => {
 
             <div className="shop-info">
                 <h1>Bring The Buddies To Your Town!</h1>
+                <div className="video-container">
+                    <video
+                        src="/videos/ball-buddies-commercial.mp4"
+                        controls
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        width="100%"
+                    />
+                </div>
                 <p>If your store is interested in carrying Ball Buddies contact our sales team at (702) 479-7522.</p>
             </div>
             
