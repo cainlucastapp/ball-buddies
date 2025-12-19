@@ -3,7 +3,15 @@
 // Dependencies
 import { describe, it, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
+import { BrowserRouter } from 'react-router-dom'
 import NotFound from '../../pages/NotFound'
+
+// Wrapper with future flags
+const RouterWrapper = ({ children }) => (
+    <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+        {children}
+    </BrowserRouter>
+);
 
 describe('NotFound', () => {
     
@@ -12,7 +20,7 @@ describe('NotFound', () => {
         // Test: Should render 404 image with alt text
         it('should render 404 image with alt text', () => {
             // Render component
-            render(<NotFound />);
+            render(<NotFound />, { wrapper: RouterWrapper });
             
             // Check image exists with correct alt text
             const image = screen.getByAltText('Missing Buddy - 404 Not Found');
@@ -21,13 +29,19 @@ describe('NotFound', () => {
         });
 
 
-        // Test: Should render "Page Not Found" text
-        it('should render "Page Not Found" text', () => {
+        // Test: Should render 404 heading and message
+        it('should render 404 heading and message', () => {
             // Render component
-            render(<NotFound />);
+            render(<NotFound />, { wrapper: RouterWrapper });
             
-            // Check "Page Not Found" heading exists
+            // Check 404 heading
+            expect(screen.getByText('404')).toBeInTheDocument();
+            
+            // Check "Page Not Found" heading
             expect(screen.getByText('Page Not Found')).toBeInTheDocument();
+            
+            // Check error message
+            expect(screen.getByText("Oops! Looks like this buddy got lost.")).toBeInTheDocument();
         });
     });
 });
