@@ -1,6 +1,6 @@
 // src/__tests__/components/ProductList.test.jsx
 
-// Dependencies
+// Dependencies 
 import { describe, it, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import ProductList from '../../components/ProductList'

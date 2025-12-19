@@ -70,7 +70,7 @@ describe('Home', () => {
             
             // Check "Legendary Rarities" feature
             expect(screen.getByText('Legendary Rarities')).toBeInTheDocument();
-            expect(screen.getByText('From common to legendary - collect them all if you dare.')).toBeInTheDocument();
+            expect(screen.getByText('From common to ultra - collect them all if you dare.')).toBeInTheDocument();
             
             // Check "Battle-Ready" feature
             expect(screen.getByText('Battle-Ready')).toBeInTheDocument();
