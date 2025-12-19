@@ -6,20 +6,19 @@ import { render, screen } from '@testing-library/react'
 import Footer from '../../components/Footer'
 
 describe('Footer', () => {
-    
-    // Base
-    it('this is a test', async () => {
-        // Test implementation here
-    })
 
-    // Edge Case
-    it('this is a test', async () => {
-        // Test implementation here
-    })
-
-    // Fail Case
-    it('this is a test', async () => {
-        // Test implementation here
-    })
-    
-})
+    describe('Base Tests', () => {
+        
+        // Test: Should display current year dynamically
+        it('should display current year dynamically', () => {
+            // Render component
+            render(<Footer />);
+            
+            // Get current year
+            const currentYear = new Date().getFullYear();
+            
+            // Check that current year is displayed
+            expect(screen.getByText(new RegExp(currentYear.toString()))).toBeInTheDocument();
+        });
+    });
+});
