@@ -6,14 +6,12 @@ import { render, screen } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom'
 import Home from '../../pages/Home'
 
-// Wrapper for React Router
-const renderWithRouter = (component) => {
-    return render(
-        <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-            {component}
-        </BrowserRouter>
-    )
-}
+// Wrapper with future flags
+const RouterWrapper = ({ children }) => (
+    <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+        {children}
+    </BrowserRouter>
+);
 
 describe('Home', () => {
     
@@ -22,7 +20,7 @@ describe('Home', () => {
         // Test: Should render hero logo with alt text
         it('should render hero logo with alt text', () => {
             // Render component
-            renderWithRouter(<Home />);
+            render(<Home />, { wrapper: RouterWrapper });
             
             // Check logo exists with correct alt text
             const logo = screen.getByAltText('Ball Buddies Logo');
@@ -34,7 +32,7 @@ describe('Home', () => {
         // Test: Should render hero section with heading and text
         it('should render hero section with heading and text', () => {
             // Render component
-            renderWithRouter(<Home />);
+            render(<Home />, { wrapper: RouterWrapper });
             
             // Check heading
             expect(screen.getByText('Welcome to Ball Buddies!')).toBeInTheDocument();
@@ -50,7 +48,7 @@ describe('Home', () => {
         // Test: Should render "Meet the Crew" link to shop
         it('should render "Meet the Crew" link to shop', () => {
             // Render component
-            renderWithRouter(<Home />);
+            render(<Home />, { wrapper: RouterWrapper });
             
             // Check link exists
             const link = screen.getByText('Meet the Crew');
@@ -64,7 +62,7 @@ describe('Home', () => {
         // Test: Should render all three feature sections
         it('should render all three feature sections', () => {
             // Render component
-            renderWithRouter(<Home />);
+            render(<Home />, { wrapper: RouterWrapper });
             
             // Check "Unique Personalities" feature
             expect(screen.getByText('Unique Personalities')).toBeInTheDocument();
