@@ -26,7 +26,7 @@ const Home = () => {
                 </div>
                 <div className="feature">
                     <h3>Legendary Rarities</h3>
-                    <p>From common to legendary - collect them all if you dare.</p>
+                    <p>From common to ultra - collect them all if you dare.</p>
                 </div>
                 <div className="feature">
                     <h3>Battle-Ready</h3>
