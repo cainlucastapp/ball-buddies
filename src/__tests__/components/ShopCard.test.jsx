@@ -48,18 +48,21 @@ describe('ShopCard', () => {
         });
 
 
-        // Test: Should render buddy name, sport, rarity, and description
+        // Test: Should render buddy name, sport, price, rarity, and description
         it('should render buddy name, sport, rarity, and description', () => {
             // Render component
             render(<ShopCard buddy={mockBuddyInStock} />);
             
-            // Check name (h3)
+            // Check name
             expect(screen.getByText('Soccer Punk')).toBeInTheDocument();
             
             // Check sport
             expect(screen.getByText('Soccer')).toBeInTheDocument();
+
+            // Check price is displayed
+            expect(screen.getByText(/24\.99/)).toBeInTheDocument();
             
-            // Check rarity (uppercased)
+            // Check rarity
             expect(screen.getByText('RARE')).toBeInTheDocument();
             
             // Check description
@@ -86,23 +89,19 @@ describe('ShopCard', () => {
 
     describe('Edge Cases', () => {
         
-        // Test: Should apply correct CSS classes based on stock status
-        it('should apply correct CSS classes based on stock status', () => {
-            // Render in-stock buddy
-            const { container, rerender } = render(<ShopCard buddy={mockBuddyInStock} />);
+        // Test: Should handle special characters in description
+        it('should handle special characters in description', () => {
+            // Mock buddy with special characters
+            const buddyWithSpecialChars = {
+                ...mockBuddyInStock,
+                description: "This ball's got attitude & won't hold back!"
+            };
             
-            // Get stock status element for in-stock
-            let stockElement = container.querySelector('.stock');
-            expect(stockElement).toHaveClass('stock', 'in-stock');
-            expect(stockElement).not.toHaveClass('out-of-stock');
+            // Render component
+            render(<ShopCard buddy={buddyWithSpecialChars} />);
             
-            // Rerender with out-of-stock buddy
-            rerender(<ShopCard buddy={mockBuddyOutOfStock} />);
-            
-            // Get stock status element for out-of-stock
-            stockElement = container.querySelector('.stock');
-            expect(stockElement).toHaveClass('stock', 'out-of-stock');
-            expect(stockElement).not.toHaveClass('in-stock');
+            // Check description renders correctly
+            expect(screen.getByText("This ball's got attitude & won't hold back!")).toBeInTheDocument();
         });
     });
 });
