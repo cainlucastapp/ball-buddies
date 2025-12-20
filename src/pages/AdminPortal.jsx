@@ -34,13 +34,6 @@ const AdminPortal = () => {
         return () => window.removeEventListener('popstate', handlePopState)
     }, [])
 
-    // Show correct view based on auth status
-    useEffect(() => {
-        if (isAuthenticated && view !== 'form') {
-            setView('table')
-        }
-    }, [isAuthenticated, view])
-
     // Handle successful login
     const handleLoginSuccess = () => {
         setView('table')

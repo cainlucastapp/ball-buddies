@@ -2,7 +2,7 @@
 
 // Dependencies
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
-import { renderHook, waitFor, act } from '@testing-library/react'
+import { renderHook, act } from '@testing-library/react'
 import useAuth from '../../hooks/useAuth'
 
 describe('useAuth', () => {
@@ -15,7 +15,7 @@ describe('useAuth', () => {
         localStorage.clear();
         
         // Mock fetch
-        fetchSpy = vi.spyOn(global, 'fetch');
+        fetchSpy = vi.spyOn(globalThis, 'fetch');
     });
 
     afterEach(() => {

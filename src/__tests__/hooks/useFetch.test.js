@@ -12,7 +12,7 @@ describe('useFetch', () => {
     
     beforeEach(() => {
         // Mock fetch
-        fetchSpy = vi.spyOn(global, 'fetch');
+        fetchSpy = vi.spyOn(globalThis, 'fetch');
     });
 
     afterEach(() => {

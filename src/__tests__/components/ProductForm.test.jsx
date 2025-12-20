@@ -14,7 +14,7 @@ describe('ProductForm', () => {
 
     beforeEach(() => {
         // Mock fetch
-        fetchSpy = vi.spyOn(global, 'fetch');
+        fetchSpy = vi.spyOn(globalThis, 'fetch');
         
         // Mock alert
         alertSpy = vi.spyOn(window, 'alert').mockImplementation(() => {});
