@@ -21,15 +21,17 @@ const ProductForm = ({ editingBuddy, onSuccess, onCancel }) => {
 
     // Edit buddy side effect
     useEffect(() => {
-        if (editingBuddy) {
+        if (editingBuddy && typeof editingBuddy === 'object') {
             setValues({
-                name: editingBuddy.name,
-                sport: editingBuddy.sport,
-                description: editingBuddy.description,
-                price: editingBuddy.price,
-                image: editingBuddy.image,
-                rarity: editingBuddy.rarity,
-                inStock: editingBuddy.inStock
+                name: editingBuddy.name || '',
+                sport: editingBuddy.sport || '',
+                description: editingBuddy.description || '',
+                price: editingBuddy.price || '',
+                image: editingBuddy.image || '',
+                rarity: ['common', 'rare', 'ultra'].includes(editingBuddy.rarity) 
+                    ? editingBuddy.rarity 
+                    : 'common',
+                inStock: editingBuddy.inStock === true
             })
         }
     }, [editingBuddy])

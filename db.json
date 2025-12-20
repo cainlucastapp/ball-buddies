@@ -44,9 +44,9 @@
       "image": "/images/8-Ball.png",
       "description": "Magic 8-Ball says: You're about to lose. All signs point to yes!",
       "inStock": true,
-      "rarity": "legendary",
+      "rarity": "ultra",
       "dateCreated": "2024-12-16T11:00:00Z",
-      "dateUpdated": "2024-12-16T11:00:00Z"
+      "dateUpdated": "2025-12-20T19:33:56.564Z"
     },
     {
       "id": "5",
@@ -92,9 +92,9 @@
       "image": "/images/Fireball.png",
       "description": "I didn't ask how BIG the room is. I CAST FIREBALL!",
       "inStock": true,
-      "rarity": "legendary",
+      "rarity": "ultra",
       "dateCreated": "2024-12-16T11:15:00Z",
-      "dateUpdated": "2024-12-16T11:15:00Z"
+      "dateUpdated": "2025-12-20T19:33:44.156Z"
     },
     {
       "id": "9",
@@ -140,9 +140,9 @@
       "image": "/images/puck-norris.png",
       "description": "Puck Norris doesn't skate around problems. Problems skate around Puck Norris.",
       "inStock": false,
-      "rarity": "legendary",
+      "rarity": "ultra",
       "dateCreated": "2024-12-16T11:35:00Z",
-      "dateUpdated": "2024-12-16T11:35:00Z"
+      "dateUpdated": "2025-12-20T19:33:33.464Z"
     },
     {
       "id": "13",

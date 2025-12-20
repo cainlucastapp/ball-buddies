@@ -21,10 +21,11 @@ const ProductList = ({ onAddNew, onEdit, refreshTrigger }) => {
 
     // Update local state when data is fetched
     useEffect(() => {
-        if (fetchedBuddies) {
+        if (Array.isArray(fetchedBuddies)) {
             setBuddies(fetchedBuddies)
         }
     }, [fetchedBuddies])
+
 
     // Handle delete buddy
     const handleDelete = async (id) => {
@@ -120,24 +121,34 @@ const ProductList = ({ onAddNew, onEdit, refreshTrigger }) => {
                     <tbody>
                         {filteredItems.map(buddy => (
                             <tr key={buddy.id}>
+                                {/* Image */}
                                 <td>
-                                    <img src={buddy.image} alt={buddy.name} className="table-image"/>
+                                    <img 
+                                        src={buddy.image || '/missing-image.png'} 
+                                        alt={buddy.name || 'Missing Image'} 
+                                        className="table-image"
+                                    />
                                 </td>
-                                <td>{buddy.name}</td>
-                                <td>{buddy.sport}</td>
-                                <td>${buddy.price}</td>
+                                {/* Name */}
+                                <td>{buddy.name || 'Lost Ball'}</td>
+                                {/* Sport */}
+                                <td>{buddy.sport || 'None'}</td>
+                                {/* Price */}
+                                <td>${Number(buddy.price) || 0}</td>
+                                {/* Rarity */}
                                 <td>
                                     <span className={"buddy-rarity"}>
-                                        {buddy.rarity}
+                                        {buddy.rarity || 'None'}
                                     </span>
                                 </td>
+                                {/* Stock */}
                                 <td>
                                     {/* toggle stock */}
                                     <button
                                         onClick={() => handleToggleStock(buddy)}
-                                        className={`stock-toggle ${buddy.inStock ? 'in-stock' : 'out-of-stock'}`}
+                                        className={`stock-toggle ${buddy.inStock === true ? 'in-stock' : 'out-of-stock'}`}
                                     >
-                                        {buddy.inStock ? '✓ In Stock' : '✗ Out of Stock'}
+                                        {buddy.inStock === true ? '✓ In Stock' : '✗ Out of Stock'}
                                     </button>
                                 </td>
                                 <td className="action-buttons">

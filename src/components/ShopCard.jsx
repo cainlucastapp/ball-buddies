@@ -8,27 +8,33 @@ const ShopCard = ({ buddy }) => {
         <div className="shop-card">
             <div className="card-image-container">
                 {/* Image */}
-                <img src={buddy.image} alt={buddy.name} className="buddy-image" />
+                <img 
+                    src={buddy.image || '/missing-image.png'} 
+                    alt={buddy.name || 'Missing Image'} 
+                    className="buddy-image"
+                />
             </div>
             <div className="card-content">
                 {/* Name */}
-                <h3 className="buddy-name">{buddy.name}</h3>
+                <h3 className="buddy-name">{buddy.name || 'Lost Ball'}</h3>
                 <div className="card-tags">
                     {/* Sport */}
-                    <span className="sport">{buddy.sport}</span>
+                    <span className="sport">{buddy.sport || 'None'}</span>
                     {/* Rarity */}
-                    <span className={`rarity`}>{buddy.rarity.toUpperCase()}</span>
+                    <span className={`rarity`}>
+                        {(buddy.rarity || 'missing').toUpperCase()}
+                    </span>
                 </div>
                 {/* Description */}
-                <p className="description">{buddy.description}</p>
+                <p className="description">{buddy.description || 'This ball has gone over the fence'}</p>
             </div>
             {/* Footer */}
             <div className="card-footer">
                 {/* Price */}
-                <span className="price">MSRP ${buddy.price}</span>
+                <span className="price">MSRP ${Number(buddy.price) || 0}</span>
                 {/* Stock Status */}
-                <span className={`stock ${buddy.inStock ? 'in-stock' : 'out-of-stock'}`}>
-                    {buddy.inStock ? '✓ In Stock' : '✗ Out of Stock'}
+                <span className={`stock ${buddy.inStock === true ? 'in-stock' : 'out-of-stock'}`}>
+                    {buddy.inStock === true ? '✓ In Stock' : '✗ Out of Stock'}
                 </span>
             </div>
         </div>
