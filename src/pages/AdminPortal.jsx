@@ -1,20 +1,20 @@
 // src/pages/AdminPortal.jsx
 
 // Dependancies 
-import { useState, useEffect } from "react"
-import useAuth from "../hooks/useAuth"
-import AdminLogin from "../components/AdminLogin"
-import ProductList from "../components/ProductList"
-import ProductForm from "../components/ProductForm"
-import "../styles/pages/AdminPortal.css"
+import { useState, useEffect } from "react";
+import useAuth from "../hooks/useAuth";
+import AdminLogin from "../components/AdminLogin";
+import ProductList from "../components/ProductList";
+import ProductForm from "../components/ProductForm";
+import "../styles/pages/AdminPortal.css";
 
 const AdminPortal = () => {
 
     // Set auth, table, edit, and refesh states
-    const { isAuthenticated, isLoading, login, logout } = useAuth()
-    const [view, setView] = useState('table')
-    const [editingBuddy, setEditingBuddy] = useState(null)
-    const [refreshTrigger, setRefreshTrigger] = useState(0)
+    const { isAuthenticated, isLoading, login, logout } = useAuth();
+    const [view, setView] = useState('table');
+    const [editingBuddy, setEditingBuddy] = useState(null);
+    const [refreshTrigger, setRefreshTrigger] = useState(0);
 
     // Handle browser back/forward buttons
     useEffect(() => {
@@ -22,52 +22,52 @@ const AdminPortal = () => {
             // Check history state to determine which view to show
             if (window.history.state?.formOpen) {
                 // Forward button pressed - show form
-                setView('form')
-                setEditingBuddy(window.history.state.buddy || null)
+                setView('form');
+                setEditingBuddy(window.history.state.buddy || null);
             } else {
                 // Back button pressed - show table
-                setView('table')
-                setEditingBuddy(null)
+                setView('table');
+                setEditingBuddy(null);
             }
-        }
-        window.addEventListener('popstate', handlePopState)
-        return () => window.removeEventListener('popstate', handlePopState)
-    }, [])
+        };
+        window.addEventListener('popstate', handlePopState);
+        return () => window.removeEventListener('popstate', handlePopState);
+    }, []);
 
     // Handle successful login
     const handleLoginSuccess = () => {
-        setView('table')
-    }
+        setView('table');
+    };
 
     // Handle logout
     const handleLogout = () => {
-        logout()
-        setView('table')
-    }
+        logout();
+        setView('table');
+    };
 
     // Trigger table refresh after CRUD operations
     const handleRefresh = () => {
-        setRefreshTrigger(prev => prev + 1)
-    }
+        setRefreshTrigger(prev => prev + 1);
+    };
 
     // Switch to form to add new or edit existing buddy
     const handleShowForm = (buddy = null) => {
         // Add to browser history with form state and buddy data
-        window.history.pushState({ formOpen: true, buddy: buddy }, '', '')
-        setEditingBuddy(buddy)
-        setView('form')
-    }
+        window.history.pushState({ formOpen: true, buddy: buddy }, '', '');
+        setEditingBuddy(buddy);
+        setView('form');
+    };
 
     // Switch back to table view
     const handleBackToTable = () => {
-        window.history.back()
-    }
+        window.history.back();
+    };
 
     // After successful form submission
     const handleFormSuccess = () => {
-        handleBackToTable()
-        handleRefresh()
-    }
+        handleBackToTable();
+        handleRefresh();
+    };
 
     // Show login if not authenticated
     if (!isAuthenticated) {
@@ -75,7 +75,7 @@ const AdminPortal = () => {
             <div className="admin-container">
                 <AdminLogin onLogin={handleLoginSuccess} login={login} isLoading={isLoading}/>
             </div>
-        )
+        );
     }
 
     // Show authenticated views
@@ -97,7 +97,7 @@ const AdminPortal = () => {
                 <ProductForm editingBuddy={editingBuddy} onSuccess={handleFormSuccess} onCancel={handleBackToTable}/>
             )}
         </div>
-    )
-}
+    );
+};
 
-export default AdminPortal
+export default AdminPortal;

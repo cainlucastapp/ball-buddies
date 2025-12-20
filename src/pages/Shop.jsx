@@ -1,23 +1,23 @@
 // src/pages/Shop.jsx
 
 // Dependencies
-import useFetch from "../hooks/useFetch"
-import useSearch from "../hooks/useSearch"
-import ShopCard from "../components/ShopCard"
-import SearchBar from "../components/SearchBar"
-import "../styles/pages/Shop.css"
+import useFetch from "../hooks/useFetch";
+import useSearch from "../hooks/useSearch";
+import ShopCard from "../components/ShopCard";
+import SearchBar from "../components/SearchBar";
+import "../styles/pages/Shop.css";
 
 const Shop = () => {
 
     // useFetch to get buddies from database
-    const { data: buddies, loading, error } = useFetch("http://localhost:4000/buddies")
+    const { data: buddies, loading, error } = useFetch("http://localhost:4000/buddies");
     
     // useSearch
-    const { searchTerm, setSearchTerm, sortBy, setSortBy, stockFilter, setStockFilter, filteredItems, resultCount, totalCount} = useSearch(buddies, ['name', 'sport', 'description'])
+    const { searchTerm, setSearchTerm, sortBy, setSortBy, stockFilter, setStockFilter, filteredItems, resultCount, totalCount} = useSearch(buddies, ['name', 'sport', 'description']);
 
     // Loading / error states
-    if (loading) return <div className="shop-container"><p>Loading buddies...</p></div>
-    if (error) return <div className="shop-container"><p>Error: {error}</p></div>
+    if (loading) return <div className="shop-container"><p>Loading buddies...</p></div>;
+    if (error) return <div className="shop-container"><p>Error: {error}</p></div>;
 
     return (
         <div className="shop-container">
@@ -55,7 +55,7 @@ const Shop = () => {
                 )}
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Shop
+export default Shop;

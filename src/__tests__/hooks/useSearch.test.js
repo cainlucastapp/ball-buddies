@@ -1,9 +1,9 @@
 // src/__tests__/hooks/useSearch.test.js
 
 // Dependencies
-import { describe, it, expect } from 'vitest'
-import { renderHook, act } from '@testing-library/react'
-import useSearch from '../../hooks/useSearch'
+import { describe, it, expect } from 'vitest';
+import { renderHook, act } from '@testing-library/react';
+import useSearch from '../../hooks/useSearch';
 
 describe('useSearch', () => {
     

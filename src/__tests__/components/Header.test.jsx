@@ -1,10 +1,10 @@
 // src/__tests__/components/Header.test.jsx
 
 // Dependencies
-import { describe, it, expect } from 'vitest'
-import { render, screen } from '@testing-library/react'
-import { BrowserRouter } from 'react-router-dom'
-import Header from '../../components/Header'
+import { describe, it, expect } from 'vitest';
+import { render, screen } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
+import Header from '../../components/Header';
 
 // Wrapper with future flags
 const RouterWrapper = ({ children }) => (

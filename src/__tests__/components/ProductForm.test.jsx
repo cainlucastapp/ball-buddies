@@ -1,9 +1,9 @@
 // src/__tests__/components/ProductForm.test.jsx
 
 // Dependencies
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
-import { render, screen, fireEvent, waitFor } from '@testing-library/react'
-import ProductForm from '../../components/ProductForm'
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import ProductForm from '../../components/ProductForm';
 
 describe('ProductForm', () => {
     

@@ -1,9 +1,9 @@
 // src/__tests__/hooks/useFetch.test.js
 
 // Dependencies
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
-import { renderHook, waitFor } from '@testing-library/react'
-import useFetch from '../../hooks/useFetch'
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { renderHook, waitFor } from '@testing-library/react';
+import useFetch from '../../hooks/useFetch';
 
 describe('useFetch', () => {
     

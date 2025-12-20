@@ -1,20 +1,20 @@
 // src/__tests__/components/ProductList.test.jsx
 
 // Dependencies
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
-import { render, screen, fireEvent, waitFor } from '@testing-library/react'
-import ProductList from '../../components/ProductList'
-import useFetch from '../../hooks/useFetch'
-import useSearch from '../../hooks/useSearch'
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import ProductList from '../../components/ProductList';
+import useFetch from '../../hooks/useFetch';
+import useSearch from '../../hooks/useSearch';
 
 // Mock the hooks
-vi.mock('../../hooks/useFetch')
-vi.mock('../../hooks/useSearch')
+vi.mock('../../hooks/useFetch');
+vi.mock('../../hooks/useSearch');
 
 // Mock SearchBar component
 vi.mock('../../components/SearchBar', () => ({
     default: () => <div data-testid="search-bar">SearchBar</div>
-}))
+}));
 
 describe('ProductList', () => {
     

@@ -1,13 +1,13 @@
 // src/__tests__/pages/AdminPortal.test.jsx
 
 // Dependencies
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
-import { render, screen, fireEvent } from '@testing-library/react'
-import AdminPortal from '../../pages/AdminPortal'
-import useAuth from '../../hooks/useAuth'
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { render, screen, fireEvent } from '@testing-library/react';
+import AdminPortal from '../../pages/AdminPortal';
+import useAuth from '../../hooks/useAuth';
 
 // Mock the useAuth hook
-vi.mock('../../hooks/useAuth')
+vi.mock('../../hooks/useAuth');
 
 // Mock AdminLogin component
 vi.mock('../../components/AdminLogin', () => ({
@@ -16,7 +16,7 @@ vi.mock('../../components/AdminLogin', () => ({
             <button onClick={onLogin}>Mock Login</button>
         </div>
     )
-}))
+}));
 
 // Mock ProductList component
 vi.mock('../../components/ProductList', () => ({
@@ -26,7 +26,7 @@ vi.mock('../../components/ProductList', () => ({
             <button onClick={() => onEdit({ id: '1', name: 'Test Buddy' })}>Edit</button>
         </div>
     )
-}))
+}));
 
 // Mock ProductForm component
 vi.mock('../../components/ProductForm', () => ({
@@ -37,7 +37,7 @@ vi.mock('../../components/ProductForm', () => ({
             <button onClick={onCancel}>Cancel</button>
         </div>
     )
-}))
+}));
 
 describe('AdminPortal', () => {
     

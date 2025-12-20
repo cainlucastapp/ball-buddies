@@ -1,6 +1,6 @@
 // src/pages/Home.jsx
-import { Link } from "react-router-dom"
-import "../styles/pages/Home.css"
+import { Link } from "react-router-dom";
+import "../styles/pages/Home.css";
 
 const Home = () => {
     return (
@@ -34,7 +34,7 @@ const Home = () => {
                 </div>
             </section>
         </div>
-    )
-}
+    );
+};
 
-export default Home
+export default Home;

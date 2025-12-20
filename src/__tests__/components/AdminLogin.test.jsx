@@ -1,9 +1,9 @@
 // src/__tests__/components/AdminLogin.test.jsx
 
 // Dependencies
-import { describe, it, expect, vi } from 'vitest'
-import { render, screen, fireEvent, waitFor } from '@testing-library/react'
-import AdminLogin from '../../components/AdminLogin'
+import { describe, it, expect, vi } from 'vitest';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import AdminLogin from '../../components/AdminLogin';
 
 describe('AdminLogin', () => {
     

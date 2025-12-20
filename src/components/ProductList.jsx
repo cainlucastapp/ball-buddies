@@ -1,11 +1,11 @@
 // src/components/ProductList.jsx
 
 // Dependancies 
-import { useState, useEffect } from "react"
-import useFetch from "../hooks/useFetch"
-import useSearch from "../hooks/useSearch"
-import SearchBar from "../components/SearchBar"
-import "../styles/components/ProductList.css"
+import { useState, useEffect } from "react";
+import useFetch from "../hooks/useFetch";
+import useSearch from "../hooks/useSearch";
+import SearchBar from "../components/SearchBar";
+import "../styles/components/ProductList.css";
 
 
 const ProductList = ({ onAddNew, onEdit, refreshTrigger }) => {
@@ -13,43 +13,43 @@ const ProductList = ({ onAddNew, onEdit, refreshTrigger }) => {
     // Fetch buddies from API (refreshTrigger forces re-fetch)
     const { data: fetchedBuddies, loading, error } = useFetch(
         `http://localhost:4000/buddies?_refresh=${refreshTrigger}`
-    )
-    const [buddies, setBuddies] = useState([])
+    );
+    const [buddies, setBuddies] = useState([]);
 
     // useSearch
-    const { searchTerm, setSearchTerm, sortBy, setSortBy, stockFilter, setStockFilter, filteredItems, resultCount, totalCount} = useSearch(buddies, ['name', 'sport', 'description'])
+    const { searchTerm, setSearchTerm, sortBy, setSortBy, stockFilter, setStockFilter, filteredItems, resultCount, totalCount} = useSearch(buddies, ['name', 'sport', 'description']);
 
     // Update local state when data is fetched
     useEffect(() => {
         if (Array.isArray(fetchedBuddies)) {
-            setBuddies(fetchedBuddies)
+            setBuddies(fetchedBuddies);
         }
-    }, [fetchedBuddies])
+    }, [fetchedBuddies]);
 
 
     // Handle delete buddy
     const handleDelete = async (id) => {
         if (!window.confirm("Are you sure you want to delete this buddy?")) {
-            return
+            return;
         }
 
         try {
             const response = await fetch(`http://localhost:4000/buddies/${id}`, {
                 method: "DELETE"
-            })
+            });
 
             if (!response.ok) {
-                throw new Error("Failed to delete buddy")
+                throw new Error("Failed to delete buddy");
             }
 
             // Update local state
-            setBuddies(prevBuddies => prevBuddies.filter(buddy => buddy.id !== id))
-            alert("Buddy deleted successfully!")
+            setBuddies(prevBuddies => prevBuddies.filter(buddy => buddy.id !== id));
+            alert("Buddy deleted successfully!");
         } catch (error) {
-            console.error("Error deleting buddy:", error)
-            alert("Failed to delete buddy. Please try again.")
+            console.error("Error deleting buddy:", error);
+            alert("Failed to delete buddy. Please try again.");
         }
-    }
+    };
 
     // Handle Toggle stock status
     const handleToggleStock = async (buddy) => {
@@ -62,30 +62,30 @@ const ProductList = ({ onAddNew, onEdit, refreshTrigger }) => {
                 body: JSON.stringify({
                     inStock: !buddy.inStock
                 })
-            })
+            });
 
             if (!response.ok) {
-                throw new Error("Failed to update stock status")
+                throw new Error("Failed to update stock status");
             }
 
-            const updatedBuddy = await response.json()
+            const updatedBuddy = await response.json();
             
             // Update local state immediately
             setBuddies(prevBuddies => 
                 prevBuddies.map(b => 
                     b.id === updatedBuddy.id ? updatedBuddy : b
                 )
-            )
+            );
         } catch (error) {
             // Error updating
-            console.error("Error updating stock:", error)
-            alert("Failed to update stock status.")
+            console.error("Error updating stock:", error);
+            alert("Failed to update stock status.");
         }
-    }
+    };
 
     // Loading and error states
-    if (loading) return <div className="list-container"><p>Loading buddies...</p></div>
-    if (error) return <div className="list-container"><p>Error: {error}</p></div>
+    if (loading) return <div className="list-container"><p>Loading buddies...</p></div>;
+    if (error) return <div className="list-container"><p>Error: {error}</p></div>;
 
     return (
         <div className="list-container">
@@ -187,7 +187,7 @@ const ProductList = ({ onAddNew, onEdit, refreshTrigger }) => {
                 </div>
             )}
         </div>
-    )
-}
+    );
+};
 
-export default ProductList
+export default ProductList;

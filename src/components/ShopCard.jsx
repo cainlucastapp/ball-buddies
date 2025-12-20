@@ -1,7 +1,7 @@
 // src/components/ShopCard.jsx
 
 // Dependencies
-import "../styles/components/ShopCard.css"
+import "../styles/components/ShopCard.css";
 
 const ShopCard = ({ buddy }) => {
     return (
@@ -38,7 +38,7 @@ const ShopCard = ({ buddy }) => {
                 </span>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default ShopCard
+export default ShopCard;

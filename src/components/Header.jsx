@@ -1,9 +1,9 @@
 // src/components/Header.jsx
 
 // Dependencies
-import { Link } from "react-router-dom"
-import Navbar from "./Navbar"
-import "../styles/components/Header.css"
+import { Link } from "react-router-dom";
+import Navbar from "./Navbar";
+import "../styles/components/Header.css";
 
 const Header = () => {
     return (
@@ -16,7 +16,7 @@ const Header = () => {
             </div>
             <Navbar />
         </header>
-    )
-}
+    );
+};
 
-export default Header
+export default Header;

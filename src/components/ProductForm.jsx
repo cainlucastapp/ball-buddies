@@ -1,8 +1,8 @@
 // src/components/ProductForm.jsx
 
 // Dependancies
-import { useState, useEffect } from "react"
-import "../styles/components/ProductForm.css"
+import { useState, useEffect } from "react";
+import "../styles/components/ProductForm.css";
 
 const ProductForm = ({ editingBuddy, onSuccess, onCancel }) => {
     
@@ -15,9 +15,9 @@ const ProductForm = ({ editingBuddy, onSuccess, onCancel }) => {
         image: '',
         rarity: 'common',
         inStock: true
-    })
-    const [errors, setErrors] = useState({})
-    const [isSubmitting, setIsSubmitting] = useState(false)
+    });
+    const [errors, setErrors] = useState({});
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     // Edit buddy side effect
     useEffect(() => {
@@ -32,88 +32,88 @@ const ProductForm = ({ editingBuddy, onSuccess, onCancel }) => {
                     ? editingBuddy.rarity 
                     : 'common',
                 inStock: editingBuddy.inStock === true
-            })
+            });
         }
-    }, [editingBuddy])
+    }, [editingBuddy]);
 
     // Handle input changes
     const handleChange = (e) => {
-        const { name, value, type, checked } = e.target
+        const { name, value, type, checked } = e.target;
         
         setValues(prev => ({
             ...prev,
             [name]: type === 'checkbox' ? checked : value
-        }))
+        }));
         
         // Clear error
         if (errors[name]) {
             setErrors(prev => ({
                 ...prev,
                 [name]: ''
-            }))
+            }));
         }
-    }
+    };
 
     // Validate form
     const validate = () => {
-        const newErrors = {}
+        const newErrors = {};
         
         if (!values.name.trim()) {
-            newErrors.name = 'Name is required'
+            newErrors.name = 'Name is required';
         }
         
         if (!values.sport.trim()) {
-            newErrors.sport = 'Sport is required'
+            newErrors.sport = 'Sport is required';
         }
         
         if (!values.description.trim()) {
-            newErrors.description = 'Description is required'
+            newErrors.description = 'Description is required';
         }
         
         if (!values.price || values.price <= 0) {
-            newErrors.price = 'Price must be greater than 0'
+            newErrors.price = 'Price must be greater than 0';
         }
         
         if (!values.image.trim()) {
-            newErrors.image = 'Image URL is required'
+            newErrors.image = 'Image URL is required';
         }
         
         if (!values.rarity) {
-            newErrors.rarity = 'Rarity is required'
+            newErrors.rarity = 'Rarity is required';
         }
         
-        setErrors(newErrors)
-        return Object.keys(newErrors).length === 0
-    }
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    };
 
     // Handle form submission
     const handleSubmit = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
         
         if (!validate()) {
-            return
+            return;
         }
         
-        setIsSubmitting(true)
+        setIsSubmitting(true);
         
         const url = editingBuddy 
             ? `http://localhost:4000/buddies/${editingBuddy.id}`
-            : "http://localhost:4000/buddies"
+            : "http://localhost:4000/buddies";
         
-        const method = editingBuddy ? "PATCH" : "POST"
+        const method = editingBuddy ? "PATCH" : "POST";
         
         // Buddy dats
-        const now = new Date().toISOString()
+        const now = new Date().toISOString();
         const buddyData = {
             ...values,
             price: parseFloat(values.price),
             // Update buddy timestap
             dateUpdated: now 
-        }
+        };
         
         // New buddy timestamp
         if (!editingBuddy) {
-            buddyData.dateCreated = now
+            buddyData.dateCreated = now;
         }
 
         try {
@@ -123,21 +123,21 @@ const ProductForm = ({ editingBuddy, onSuccess, onCancel }) => {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(buddyData)
-            })
+            });
 
             if (!response.ok) {
-                throw new Error(`Failed to ${editingBuddy ? 'update' : 'add'} buddy`)
+                throw new Error(`Failed to ${editingBuddy ? 'update' : 'add'} buddy`);
             }
             // Buddy added
-            alert(`Buddy ${editingBuddy ? 'updated' : 'added'} successfully!`)
-            onSuccess()
+            alert(`Buddy ${editingBuddy ? 'updated' : 'added'} successfully!`);
+            onSuccess();
         } catch (error) {
-            console.error("Form submission error:", error)
-            alert(`Failed to ${editingBuddy ? 'update' : 'add'} buddy. Please try again.`)
+            console.error("Form submission error:", error);
+            alert(`Failed to ${editingBuddy ? 'update' : 'add'} buddy. Please try again.`);
         } finally {
-            setIsSubmitting(false)
+            setIsSubmitting(false);
         }
-    }
+    };
 
     return (
         <div className="form-container">
@@ -257,7 +257,7 @@ const ProductForm = ({ editingBuddy, onSuccess, onCancel }) => {
                 </div>
             </form>
         </div>
-    )
-}
+    );
+};
 
-export default ProductForm
+export default ProductForm;

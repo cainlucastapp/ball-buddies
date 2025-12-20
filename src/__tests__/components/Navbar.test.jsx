@@ -1,10 +1,10 @@
 // src/__tests__/components/Navbar.test.jsx
 
 // Dependencies
-import { describe, it, expect } from 'vitest'
-import { render, screen } from '@testing-library/react'
-import { BrowserRouter } from 'react-router-dom'
-import Navbar from '../../components/Navbar'
+import { describe, it, expect } from 'vitest';
+import { render, screen } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
+import Navbar from '../../components/Navbar';
 
 // Wrapper with future flags
 const RouterWrapper = ({ children }) => (

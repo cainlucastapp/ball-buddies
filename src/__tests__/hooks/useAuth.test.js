@@ -1,9 +1,9 @@
 // src/__tests__/hooks/useAuth.test.js
 
 // Dependencies
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
-import { renderHook, act } from '@testing-library/react'
-import useAuth from '../../hooks/useAuth'
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { renderHook, act } from '@testing-library/react';
+import useAuth from '../../hooks/useAuth';
 
 describe('useAuth', () => {
     

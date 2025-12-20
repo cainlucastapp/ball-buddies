@@ -1,10 +1,10 @@
 // src/__tests__/pages/Home.test.jsx
 
 // Dependencies
-import { describe, it, expect } from 'vitest'
-import { render, screen } from '@testing-library/react'
-import { BrowserRouter } from 'react-router-dom'
-import Home from '../../pages/Home'
+import { describe, it, expect } from 'vitest';
+import { render, screen } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
+import Home from '../../pages/Home';
 
 // Wrapper with future flags
 const RouterWrapper = ({ children }) => (

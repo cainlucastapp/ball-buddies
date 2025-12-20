@@ -1,45 +1,45 @@
 // src/components/AdminLogin.jsx
 
 // Dependancies
-import { useState, useRef, useEffect } from "react"
-import "../styles/components/AdminLogin.css"
+import { useState, useRef, useEffect } from "react";
+import "../styles/components/AdminLogin.css";
 
 
 const AdminLogin = ({ onLogin, login, isLoading }) => {
     
     // Set user, password, and error states
-    const [username, setUsername] = useState("")
-    const [password, setPassword] = useState("")
-    const [error, setError] = useState("")
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
     
     // Username input ref
-    const usernameRef = useRef(null)
+    const usernameRef = useRef(null);
 
     // Focus username on mount
     useEffect(() => {
-        usernameRef.current?.focus()
-    }, [])
+        usernameRef.current?.focus();
+    }, []);
 
     // Handle form submit
     const handleSubmit = async (e) => {
         // Prevent Reload
-        e.preventDefault()
+        e.preventDefault();
         
         // Clear previous errors
-        setError("")
+        setError("");
         
         // Call the login function from useAuth hook
-        const result = await login(username, password)
+        const result = await login(username, password);
         
         if (result.success) {
             // Login successful
-            onLogin() 
+            onLogin(); 
         } else {
             // Clear password on failed login
-            setError(result.error)
-            setPassword("")
+            setError(result.error);
+            setPassword("");
         }
-    }
+    };
 
     return (
         <div className="login-container">
@@ -83,7 +83,7 @@ const AdminLogin = ({ onLogin, login, isLoading }) => {
                 </button>
             </form>
         </div>
-    )
-}
+    );
+};
 
-export default AdminLogin
+export default AdminLogin;

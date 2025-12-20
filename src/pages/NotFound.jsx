@@ -1,8 +1,8 @@
 // src/pages/NotFound.jsx
 
 // Dependencies
-import { Link } from "react-router-dom"
-import "../styles/pages/NotFound.css"
+import { Link } from "react-router-dom";
+import "../styles/pages/NotFound.css";
 
 const NotFound = () => {
     return (
@@ -15,7 +15,7 @@ const NotFound = () => {
                 Click Here To Find Another Buddy
             </Link>
         </div>
-    )
-}
+    );
+};
 
-export default NotFound
+export default NotFound;

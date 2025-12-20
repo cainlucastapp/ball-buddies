@@ -1,9 +1,9 @@
 // src/__tests__/components/SearchBar.test.jsx
 
 // Dependencies
-import { describe, it, expect, vi } from 'vitest'
-import { render, screen, fireEvent } from '@testing-library/react'
-import SearchBar from '../../components/SearchBar'
+import { describe, it, expect, vi } from 'vitest';
+import { render, screen, fireEvent } from '@testing-library/react';
+import SearchBar from '../../components/SearchBar';
 
 describe('SearchBar', () => {
     

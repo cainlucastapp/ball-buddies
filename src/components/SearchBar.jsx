@@ -1,16 +1,16 @@
 // src/components/SearchBar.jsx
 
 // Dependancies 
-import { useRef, useEffect } from "react"
-import "../styles/components/SearchBar.css"
+import { useRef, useEffect } from "react";
+import "../styles/components/SearchBar.css";
 
 const SearchBar = ({ searchTerm, setSearchTerm, sortBy, setSortBy, stockFilter, setStockFilter }) => {
     
     // Set focus to search box
-    const searchInputRef = useRef(null)
+    const searchInputRef = useRef(null);
     useEffect(() => {
-        searchInputRef.current?.focus()
-    }, [])
+        searchInputRef.current?.focus();
+    }, []);
 
     return (
         <div className="search-bar">
@@ -60,7 +60,7 @@ const SearchBar = ({ searchTerm, setSearchTerm, sortBy, setSortBy, stockFilter, 
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default SearchBar
+export default SearchBar;

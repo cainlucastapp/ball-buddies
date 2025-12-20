@@ -1,8 +1,8 @@
 // src/components/Navbar.jsx
 
 // Dependencies
-import { NavLink } from "react-router-dom"
-import "../styles/components/Navbar.css"
+import { NavLink } from "react-router-dom";
+import "../styles/components/Navbar.css";
 
 const Navbar = () => {
     return (
@@ -13,7 +13,7 @@ const Navbar = () => {
                 <li><NavLink to="/admin">Admin</NavLink></li>
             </ul>
         </nav>
-    )
-}
+    );
+};
 
-export default Navbar
+export default Navbar;

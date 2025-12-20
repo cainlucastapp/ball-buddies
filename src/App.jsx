@@ -1,14 +1,14 @@
 // App.jsx
 
 //Dependencies
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Header from "./components/Header"
-import Home from "./pages/Home"
-import Shop from "./pages/Shop"
-import AdminPortal from "./pages/AdminPortal"
-import NotFound from "./pages/NotFound"
-import "./styles/App.css"
-import Footer from "./components/Footer"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Home from "./pages/Home";
+import Shop from "./pages/Shop";
+import AdminPortal from "./pages/AdminPortal";
+import NotFound from "./pages/NotFound";
+import "./styles/App.css";
+import Footer from "./components/Footer";
 
 const App = () => {
     return (
@@ -26,7 +26,7 @@ const App = () => {
                 <Footer />
             </BrowserRouter>
         </>
-    )
-}
+    );
+};
 
-export default App
+export default App;

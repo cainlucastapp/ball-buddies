@@ -1,10 +1,10 @@
 // src/__tests__/pages/NotFound.test.jsx
 
 // Dependencies
-import { describe, it, expect } from 'vitest'
-import { render, screen } from '@testing-library/react'
-import { BrowserRouter } from 'react-router-dom'
-import NotFound from '../../pages/NotFound'
+import { describe, it, expect } from 'vitest';
+import { render, screen } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
+import NotFound from '../../pages/NotFound';
 
 // Wrapper with future flags
 const RouterWrapper = ({ children }) => (
